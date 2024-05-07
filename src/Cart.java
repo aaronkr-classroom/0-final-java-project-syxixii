@@ -1,9 +1,14 @@
+package com.market.cart;
+
+import com.market.bookitem.Book;
+
 public class Cart implements CartInterface {
     static final int NUM_BOOK = 3;
-    CartItem[] mCartItem = new CartItem[NUM_BOOK];
-    static int mCartCount = 0;
+    public CartItem[] mCartItem = new CartItem[NUM_BOOK];
+    public static int mCartCount = 0;
 
-    public Cart() { }
+    public Cart() {
+    }
 
     public void printBookList(Book[] booklist) {
         for (int i = 0; i < booklist.length; i++) {
@@ -41,7 +46,7 @@ public class Cart implements CartInterface {
         boolean flag = false;
         for (int i = 0; i < mCartCount; i++) {
             if (bookId == mCartItem[i].getBookID()) {
-                mCartItem[i].setQuantity(mCartItem[i].getQuantity()+1);
+                mCartItem[i].setQuantity(mCartItem[i].getQuantity() + 1);
                 flag = true;
             }
         }
@@ -52,10 +57,10 @@ public class Cart implements CartInterface {
         CartItem[] cartItem = new CartItem[NUM_BOOK];
         int num = 0;
 
-        for (int i = 0; i < mCartCount; i++) 
+        for (int i = 0; i < mCartCount; i++)
             if (numId != i)
                 cartItem[num++] = mCartItem[i];
-        
+
         mCartCount = num;
         mCartItem = cartItem;
     }
